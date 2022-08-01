@@ -29,7 +29,7 @@ const registerTemplate = (submitHandler) => html`
                                 <br>
                                 <div class="form-group">
                                     <label for="registerPassword">Password</label>
-                                    <input type="password" name="password" class="form-control" id="registerPassword" placeholder="Password" required>
+                                    <input type="password" name="password" class="form-control" id="registerPassword" placeholder="Enter Password" required>
                                 </div>
                                 <br>
                                 <div class="form-group">
