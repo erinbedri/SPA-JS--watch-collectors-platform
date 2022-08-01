@@ -60,7 +60,7 @@ export const loginView = (ctx) => {
                     let errorElement = document.getElementById('errorMessage');
                     errorElement.classList.add('alert')
                     errorElement.classList.add('alert-danger')
-                    errorElement.textContent = "Invalid Credentials";
+                    errorElement.textContent = res.message;
                 })
                 .catch(err => {
                     alert(err);
