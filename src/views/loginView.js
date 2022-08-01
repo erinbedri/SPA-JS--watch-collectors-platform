@@ -31,6 +31,7 @@ const loginTemplate = (submitHandler) => html`
                                     <span>If you don't have an account click <a href="/register">here</a></span>
                                 </div>
                                 <br>
+                                <div id="errorMessage" role="alert"></div>
                                 <button type="submit" class="btn btn-primary">Login</button>
                             </form>
 
@@ -52,8 +53,14 @@ export const loginView = (ctx) => {
 
         if (email != '' && password != '') {
             authService.login(email, password)
-                .then(() => {
-                    ctx.page.redirect('/');
+                .then(res => {
+                    if (res.code == 200) {
+                        ctx.page.redirect('/');
+                    }
+                    let errorElement = document.getElementById('errorMessage');
+                    errorElement.classList.add('alert')
+                    errorElement.classList.add('alert-danger')
+                    errorElement.textContent = "Invalid Credentials";
                 })
                 .catch(err => {
                     alert(err);
