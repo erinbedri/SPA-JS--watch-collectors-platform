@@ -16,7 +16,7 @@ const loginTemplate = (submitHandler) => html`
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-xl-7">
 
-                            <form @submit=${submitHandler}>
+                            <form @submit=${submitHandler} id="loginForm">
                                 <div class="form-group">
                                     <label for="loginEmail">Email address</label>
                                     <input type="email" name="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
@@ -59,10 +59,13 @@ export const loginView = (ctx) => {
                     if (res.code == 200) {
                         ctx.page.redirect('/');
                     }
+
                     let errorElement = document.getElementById('errorMessage');
-                    errorElement.classList.add('alert')
-                    errorElement.classList.add('alert-danger')
+                    errorElement.classList.add('alert');
+                    errorElement.classList.add('alert-danger');
                     errorElement.textContent = res.message;
+
+                    document.getElementById('loginForm').reset();
                 })
                 .catch(err => {
                     alert(err);
