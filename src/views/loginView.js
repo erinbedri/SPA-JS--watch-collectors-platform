@@ -31,7 +31,9 @@ const loginTemplate = (submitHandler) => html`
                                     <span>If you don't have an account click <a href="/register">here</a></span>
                                 </div>
                                 <br>
+
                                 <div id="errorMessage" role="alert"></div>
+                                
                                 <button type="submit" class="btn btn-primary">Login</button>
                             </form>
 
