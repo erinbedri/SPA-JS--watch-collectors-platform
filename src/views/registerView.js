@@ -16,7 +16,7 @@ const registerTemplate = (submitHandler) => html`
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-xl-7">
 
-                            <form @submit=${submitHandler}>
+                            <form @submit=${submitHandler} id="registrationForm">
                                 <div class="form-group">
                                     <label for="registerEmail">Username</label>
                                     <input type="text" name="username" class="form-control" id="registerUsername" aria-describedby="emailHelp" placeholder="Enter username" required>
@@ -39,10 +39,13 @@ const registerTemplate = (submitHandler) => html`
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <span>If you already have a profile click <a href="/login">here</a></span>
+                                    <span>If you already have a profile, click <a href="/login">here</a></span>
                                 </div>
                                 <br>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+
+                                <div id="errorMessage" role="alert"></div>
+
+                                <button type="submit" class="btn btn-primary">Register</button>
                             </form>
 
                         </div>
@@ -69,8 +72,17 @@ export const registerView = (ctx) => {
 
         if (username != '' && email != '' && password != '' && password == repassword) {
             authService.register(username, email, password)
-                .then(() => {
-                    ctx.page.redirect('/');
+                .then((res) => {
+                    if (res.code == 200) {
+                        ctx.page.redirect('/');
+                    }
+
+                    let errorElement = document.getElementById('errorMessage');
+                    errorElement.classList.add('alert');
+                    errorElement.classList.add('alert-danger');
+                    errorElement.textContent = res.message;
+
+                    document.getElementById('registrationForm').reset();
                 })
                 .catch(err => {
                     alert(err);

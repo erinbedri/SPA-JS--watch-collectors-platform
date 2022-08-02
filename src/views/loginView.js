@@ -28,7 +28,7 @@ const loginTemplate = (submitHandler) => html`
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <span>If you don't have an account click <a href="/register">here</a></span>
+                                    <span>If you don't have an account, click <a href="/register">here</a></span>
                                 </div>
                                 <br>
 
