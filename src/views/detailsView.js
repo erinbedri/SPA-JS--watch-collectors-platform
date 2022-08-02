@@ -39,7 +39,7 @@ const detailsTemplate = (ctx, watch, hasLiked, likes, comments) => html`
                         <p><b>Style: </b>${watch.style}</p>
                         <p><b>Condition: </b>${watch.condition}</p>
                         <p><b>Description: </b>${watch.description}</p>
-                        <p><b>User Likes: </b>${likes}</p>
+                        <span class="badge rounded-pill bg-primary">Likes: ${likes}</span>
                     </div>
                 </div>
 
