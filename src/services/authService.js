@@ -37,11 +37,9 @@ export const login = (email, password) =>
 
 export const register = (username, email, password) =>
     request.post(baseUrl + api.register, { username, email, password })
-        .then(res => {
-            if (res.code == 200) {
-                saveUser(res);
-            }
-            return user;
+        .then(response => {
+            saveUser(response);
+            return response;
         })
 
 

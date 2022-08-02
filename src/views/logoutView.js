@@ -5,4 +5,5 @@ export const logoutView = (ctx) => {
 
     ctx.page.redirect('/');
     location.reload();
+
 }
