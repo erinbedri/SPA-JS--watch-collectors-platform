@@ -1325,6 +1325,11 @@
                 email: "erinbedri@abv.bg",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
             },
+            "35c62d76-8152-4626-8712-eeb96381bea9": {
+                username: "erin",
+                email: "erinbedri@gmail.com",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            }
         },
         sessions: {
         }
@@ -1397,7 +1402,26 @@
                 "imageUrl": "/assets/Tudor.png",
             },
         },
-        likes: {},
+        likes: [
+            {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea9",
+                "watchId": "ff436770-76c5-40e2-b231-77409eda7a62",
+                "_createdOn": 1659473161667,
+                "_id": "0b2556af-c430-4a3d-9091-27fdf499cc19"
+            },
+            {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea9",
+                "watchId": "ff436770-76c5-40e2-b231-77409eda7a63",
+                "_createdOn": 1659473164873,
+                "_id": "cb5f6fa9-a22e-4d6d-a5e6-24ac07157b52"
+            },
+            {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea9",
+                "watchId": "ff436770-76c5-40e2-b231-77409eda7a64",
+                "_createdOn": 1659473167948,
+                "_id": "d795e99b-17c6-41f4-bdf8-29bedb967a07"
+            },
+        ],
         comments: {}
     };
     var rules$1 = {

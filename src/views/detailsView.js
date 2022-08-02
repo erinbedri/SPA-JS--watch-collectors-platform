@@ -102,6 +102,7 @@ export const detailsView = (ctx) => {
     postService.getComments(ctx.params.id)
         .then(result => {
             comments = result;
+            console.log(comments)
         })
         .catch(err => {
             alert(err);
