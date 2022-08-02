@@ -2,6 +2,8 @@ import { html } from '../../node_modules/lit-html/lit-html.js';
 
 import * as postService from '../services/postService.js';
 
+let PAGE_SIZE = 3;
+
 const postTemplate = (watch) => html`
     <div class="col-md-6 col-lg-4 mb-5">
         <div class="card" style="width: 18rem;">
@@ -34,6 +36,16 @@ const homeTemplate = (posts) => html`
                     </div>
 
                 </div>
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
 
             </section>
 
