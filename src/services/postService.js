@@ -13,7 +13,8 @@ const api = {
     getLikesOfWatch: (id) => `/data/likes?where=watchId%3D%22${id}%22&distinct=_ownerId&count`,
     hasLiked: (userId, watchId) => `/data/likes?where=watchId%3D%22${watchId}%22%20and%20_ownerId%3D%22${userId}%22&count`,
     getComments: (watchId) => `/data/comments?where=watchId%3D%22${watchId}%22`,
-    comment: '/data/comments'
+    comment: '/data/comments',
+    getNumberOfItems: '/data/posts?count'
 }
 
 export const getAll = () => request.get(baseUrl + api.getAll);
@@ -37,3 +38,5 @@ export const hasLiked = (userId, watchId) => request.get(baseUrl + api.hasLiked(
 export const getComments = (watchId) => request.get(baseUrl + api.getComments(watchId));
 
 export const comment = (watchId, comment, user) => request.post(baseUrl + api.comment, {watchId, comment, user});
+
+export const getNumberOfItems = () => request.get(baseUrl + api.getNumberOfItems);

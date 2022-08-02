@@ -1,8 +1,13 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
+import { post } from '../middleware/requester.js';
 
 import * as postService from '../services/postService.js';
 
-let PAGE_SIZE = 3;
+const currentPage = 1;
+const PAGE_SIZE = 3;
+const NUMBER_OF_ITEMS = await postService.getNumberOfItems();
+const NUMBER_OF_PAGES = Math.ceil(NUMBER_OF_ITEMS / PAGE_SIZE);
+
 
 const postTemplate = (watch) => html`
     <div class="col-md-6 col-lg-4 mb-5">
