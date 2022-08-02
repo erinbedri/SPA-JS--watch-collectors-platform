@@ -1,9 +1,11 @@
 import * as request from '../middleware/requester.js';
 
+import { PAGE_SIZE } from '../utils/constants.js';
+
 const baseUrl = 'http://localhost:3030';
 
 const api = {
-    getAll: '/data/posts?sortBy=_createdOn%20desc',
+    getAll: (page) => `/data/posts?sortBy=_createdOn%20desc&offset=${(page - 1) * PAGE_SIZE}&pageSize=${PAGE_SIZE}`,
     create: '/data/posts',
     getOne: (id) => `/data/posts/${id}`,
     edit: (id) => `/data/posts/${id}`,
@@ -14,10 +16,10 @@ const api = {
     hasLiked: (userId, watchId) => `/data/likes?where=watchId%3D%22${watchId}%22%20and%20_ownerId%3D%22${userId}%22&count`,
     getComments: (watchId) => `/data/comments?where=watchId%3D%22${watchId}%22`,
     comment: '/data/comments',
-    getNumberOfItems: '/data/posts?count'
+    getCount: '/data/posts?count'
 }
 
-export const getAll = () => request.get(baseUrl + api.getAll);
+export const getAll = (page) => request.get(baseUrl + api.getAll(page));
 
 export const create = (newPost) => request.post(baseUrl + api.create, newPost);
 
@@ -39,4 +41,4 @@ export const getComments = (watchId) => request.get(baseUrl + api.getComments(wa
 
 export const comment = (watchId, comment, user) => request.post(baseUrl + api.comment, {watchId, comment, user});
 
-export const getNumberOfItems = () => request.get(baseUrl + api.getNumberOfItems);
+export const getCount = () => request.get(baseUrl + api.getCount);

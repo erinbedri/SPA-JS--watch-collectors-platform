@@ -1,10 +1,8 @@
-import { html } from '../../node_modules/lit-html/lit-html.js';
+import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
 
 import * as postService from '../services/postService.js';
 
-const PAGE_SIZE = 3;
-const NUMBER_OF_ITEMS = await postService.getNumberOfItems();
-const NUMBER_OF_PAGES = Math.ceil(NUMBER_OF_ITEMS / PAGE_SIZE);
+import { PAGE_SIZE } from '../utils/constants.js';
 
 const postTemplate = (watch) => html`
     <div class="col-md-6 col-lg-4 mb-5">
@@ -19,7 +17,7 @@ const postTemplate = (watch) => html`
     </div>
 `;
 
-const homeTemplate = (posts) => html`
+const homeTemplate = (posts, page, pages) => html`
             <section class="page-section">
                 <div class="container">
                     <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">All Watches</h2>
@@ -41,11 +39,9 @@ const homeTemplate = (posts) => html`
 
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        ${page > 1 ? html`<li class="page-item"><a class="page-link" href="/?page=${page - 1}">Previous</a></li>` : nothing}
+                        <li class="page-item active"><a class="page-link" href="#">${page + ' of ' + pages}</a></li>
+                        ${page < pages ? html`<li class="page-item"><a class="page-link" href="/?page=${page + 1}">Next</a></li>` : nothing}
                     </ul>
                 </nav>
 
@@ -53,11 +49,20 @@ const homeTemplate = (posts) => html`
 `;
 
 export const homeView = (ctx) => {
-    postService.getAll()
-        .then(posts => {
-            ctx.render(homeTemplate(posts));
-        })
-        .catch(err => {
-            alert(err)
-        })
+    const query = Object.fromEntries([...(new URLSearchParams(ctx.querystring).entries())]);
+    const page = Number(query.page || 1);
+
+    Promise.all([
+        postService.getAll(page),
+        postService.getCount()
+    ])
+    .then((values) => {
+        let posts = values[0];
+        let pages = Math.ceil(values[1] / PAGE_SIZE);
+        ctx.render(homeTemplate(posts, page, pages));
+    })
+    .catch(err => {
+        alert(err);
+    })
+    
 }
