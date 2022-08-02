@@ -30,21 +30,20 @@ export const getToken = () => {
 
 export const login = (email, password) =>
     request.post(baseUrl + api.login, { email, password })
-        .then(res => {
-            if (res.code == 200) {
-                saveUser(res);
-    
-            }
-            return res;
+        .then(response => {
+            saveUser(response);
+            return response;
         })
 
 export const register = (username, email, password) =>
     request.post(baseUrl + api.register, { username, email, password })
-        .then(user => {
-            saveUser(user);
-
+        .then(res => {
+            if (res.code == 200) {
+                saveUser(res);
+            }
             return user;
-        });
+        })
+
 
 export const logout = () => {
     fetch(baseUrl + api.logout, { headers: { 'X-Authorization': getToken() } })

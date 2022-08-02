@@ -43,7 +43,7 @@ const registerTemplate = (submitHandler) => html`
                                 </div>
                                 <br>
 
-                                <div id="errorMessage" role="alert"></div>
+                                <div id="errorMessageRegistration" role="alert"></div>
 
                                 <button type="submit" class="btn btn-primary">Register</button>
                             </form>
@@ -72,12 +72,12 @@ export const registerView = (ctx) => {
 
         if (username != '' && email != '' && password != '' && password == repassword) {
             authService.register(username, email, password)
-                .then((res) => {
+                .then(res => {
                     if (res.code == 200) {
                         ctx.page.redirect('/');
                     }
 
-                    let errorElement = document.getElementById('errorMessage');
+                    let errorElement = document.getElementById('errorMessageRegistration');
                     errorElement.classList.add('alert');
                     errorElement.classList.add('alert-danger');
                     errorElement.textContent = res.message;

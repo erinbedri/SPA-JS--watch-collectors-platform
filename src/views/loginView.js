@@ -55,17 +55,20 @@ export const loginView = (ctx) => {
 
         if (email != '' && password != '') {
             authService.login(email, password)
-                .then(res => {
-                    if (res.code == 200) {
+                .then(response => {
+                    if (response.accessToken) {
                         ctx.page.redirect('/');
                     }
 
-                    let errorElement = document.getElementById('errorMessage');
-                    errorElement.classList.add('alert');
-                    errorElement.classList.add('alert-danger');
-                    errorElement.textContent = res.message;
-
-                    document.getElementById('loginForm').reset();
+                    if (response.code != 200) {
+                        let errorElement = document.getElementById('errorMessage');
+                        errorElement.classList.add('alert');
+                        errorElement.classList.add('alert-danger');
+                        errorElement.textContent = response.message;
+                        
+                        document.getElementById('loginForm').reset();
+                    }
+                    
                 })
                 .catch(err => {
                     alert(err);
