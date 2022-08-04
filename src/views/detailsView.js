@@ -78,6 +78,14 @@ const detailsTemplate = (ctx, watch, hasLiked, likes, comments) => html`
 `;
 
 export const detailsView = (ctx) => {
+    /*
+    let [likes, hasLiked, comments] = Promise.all([
+        postService.getLikesOfWatch(ctx.params.id),
+        postService.hasLiked(ctx.user._id, ctx.params.id),
+        postService.getComments(ctx.params.id)
+    ])
+    */
+    
     let likes;
     postService.getLikesOfWatch(ctx.params.id)
         .then(count => {
