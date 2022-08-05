@@ -80,8 +80,11 @@ const detailsTemplate = (ctx, watch, hasLiked, likes, comments) => html`
 `;
 
 export const detailsView = (ctx) => {  
+    let userId = ctx.user._id;
+    let postId = ctx.params.id;
+
     let likes;
-    postService.getLikesOfWatch(ctx.params.id)
+    postService.getLikesOfWatch(postId)
         .then(count => {
             likes = count;
         })
@@ -91,7 +94,7 @@ export const detailsView = (ctx) => {
 
     let hasLiked = false;
     if (ctx.user) {
-        postService.hasLiked(ctx.user._id, ctx.params.id)
+        postService.hasLiked(userId, cpostId)
             .then(result => {
                 hasLiked = result;
             })
@@ -101,7 +104,7 @@ export const detailsView = (ctx) => {
     }
 
     let comments;
-    postService.getComments(ctx.params.id)
+    postService.getComments(postId)
         .then(result => {
             comments = result;
         })
@@ -109,7 +112,7 @@ export const detailsView = (ctx) => {
             alert(err);
         })
 
-    postService.getOne(ctx.params.id)
+    postService.getOne(postId)
         .then(watch => {
             ctx.render(detailsTemplate(ctx, watch, hasLiked, likes, comments));
         })
@@ -128,12 +131,13 @@ const onClick = (ctx) => {
 }
 
 const onComment = (ctx) => {
+    let postId = ctx.params.id;
     let comment = document.getElementById('newComment');
 
-    postService.comment(ctx.params.id, comment.value, ctx.user)
+    postService.comment(postId, comment.value, ctx.user)
         .then(() => {
             comment.value = ``; 
-            ctx.page.redirect(`/details/${ctx.params.id}`);
+            ctx.page.redirect(`/details/${postId}`);
         })
         .catch(err => {
             alert(err);
