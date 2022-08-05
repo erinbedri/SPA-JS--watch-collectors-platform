@@ -39,7 +39,9 @@ const homeTemplate = (posts, page, pages) => html`
 
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
-                        ${page > 1 ? html`<li class="page-item"><a class="page-link" href="/?page=${page - 1}">Previous</a></li>` : nothing}
+                        ${page > 1 
+                            ? html`<li class="page-item"><a class="page-link" href="/?page=${page - 1}">Previous</a></li>` 
+                            : html`<li class="page-item disabled"><a class="page-link" href="/?page=${page - 1}">Previous</a></li>`}
                         <li class="page-item active"><a class="page-link" href="#">${page + ' of ' + pages}</a></li>
                         ${page < pages ? html`<li class="page-item"><a class="page-link" href="/?page=${page + 1}">Next</a></li>` : nothing}
                     </ul>
