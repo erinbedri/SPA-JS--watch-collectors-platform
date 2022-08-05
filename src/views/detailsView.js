@@ -94,7 +94,7 @@ export const detailsView = (ctx) => {
 
     let hasLiked = false;
     if (ctx.user) {
-        postService.hasLiked(userId, cpostId)
+        postService.hasLiked(userId, postId)
             .then(result => {
                 hasLiked = result;
             })
