@@ -5,7 +5,7 @@ import * as postService from '../services/postService.js';
 const postTemplate = (watch) => html`
     <div class="col-md-6 col-lg-4 mb-5">
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src=${watch.imageUrl} alt="Card image cap">
+            <img class="card-img-top" src=${watch.imageUrl} alt=${watch.brand}>
             <div class="card-body">
                 <h4 class="card-title">${watch.brand}</h4>
                 <h5 class="card-title">${watch.model}</h5>
