@@ -39,7 +39,9 @@ const detailsTemplate = (ctx, watch, hasLiked, likes, comments) => html`
                         <p><b>Style: </b>${watch.style}</p>
                         <p><b>Condition: </b>${watch.condition}</p>
                         <p><b>Description: </b>${watch.description}</p>
-                        <span class="badge rounded-pill bg-primary">Likes: ${likes}</span>
+                        <span class="badge rounded-pill bg-primary">
+                            Likes:  <span class="badge badge-light">${likes}</span>
+                        </span>
                     </div>
                 </div>
 
@@ -77,15 +79,7 @@ const detailsTemplate = (ctx, watch, hasLiked, likes, comments) => html`
         </section>
 `;
 
-export const detailsView = (ctx) => {
-    /*
-    let [likes, hasLiked, comments] = Promise.all([
-        postService.getLikesOfWatch(ctx.params.id),
-        postService.hasLiked(ctx.user._id, ctx.params.id),
-        postService.getComments(ctx.params.id)
-    ])
-    */
-    
+export const detailsView = (ctx) => {  
     let likes;
     postService.getLikesOfWatch(ctx.params.id)
         .then(count => {
@@ -110,7 +104,6 @@ export const detailsView = (ctx) => {
     postService.getComments(ctx.params.id)
         .then(result => {
             comments = result;
-            console.log(comments)
         })
         .catch(err => {
             alert(err);
