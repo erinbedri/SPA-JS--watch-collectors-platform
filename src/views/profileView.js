@@ -14,7 +14,7 @@ const profileTemplate = (user, watchesCount) => html`
                     </div>
             
                     <div class="row justify-content-center">
-                        <div class="col-lg-4 col-xl-7">
+                        <div class="col-lg-12 col-xl-4">
             
                             <div class="form-group">
                                 <label for="username">Username</label>
@@ -33,8 +33,10 @@ const profileTemplate = (user, watchesCount) => html`
                                 <input type="text" name="countWatches" class="form-control" id="countWatches"
                                     aria-describedby="emailHelp" placeholder=${watchesCount} readonly>
                             </div>
-                            <br>
-                            <a href="#" class="btn btn-primary disabled">Edit</a>
+  
+                            <div class="text-center mt-4">
+                                <a href="#" class="btn btn-primary disabled">Edit</a>
+                            </div>
             
                         </div>
             
