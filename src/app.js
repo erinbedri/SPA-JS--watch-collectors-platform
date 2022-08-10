@@ -18,6 +18,7 @@ page(renderNavigationMiddleware);
 page(renderContentMiddleware);
 
 page('/', homeView);
+page('index.html', '/');
 page('/login', loginView);
 page('/register', registerView);
 page('/logout', logoutView);
