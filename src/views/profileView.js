@@ -13,11 +13,22 @@ const profileTemplate = (user) => html`
                         <div class="divider-custom-line"></div>
                     </div>
 
-                    <div class="card-body">
-                        <h4 class="card-title">Username: ${user.username}</h4>
-                        <h4 class="card-title">Email: ${user.email}</h5>
-                        <div class="divider-custom-line"></div>
-                        <a href="#" class="btn btn-primary">Edit</a>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-xl-7">
+
+                            <div class="form-group">
+                                    <label for="email">Username</label>
+                                    <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder=${user.username} readonly>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                    <label for="email">Email address</label>
+                                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder=${user.email} readonly>
+                            </div>
+                            <br>
+                            <a href="#" class="btn btn-primary">Edit</a>
+                        </div>
+
                     </div>
                 </div>
 `;
