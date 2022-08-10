@@ -1346,7 +1346,7 @@
                 "year": "2022",
                 "style": "Diver watch with water-resistant to 30 bar",
                 "condition": "Newly acquired watch",
-                "description" : "Scratch-resistant sapphire crystal, with several layers of anti-reflective coating on both sides.",
+                "description": "Scratch-resistant sapphire crystal, with several layers of anti-reflective coating on both sides.",
                 "imageUrl": "/assets/Longines.jpeg",
             },
             "ff436770-76c5-40e2-b231-77409eda7a63": {
@@ -1359,7 +1359,7 @@
                 "year": "1996",
                 "style": "Diver, water resistant has not been tested.",
                 "condition": "Good worn condition",
-                "description" : "A beatiful vintage Bulova submariner style watch. 40mm case and 20mm lugs. ",
+                "description": "A beatiful vintage Bulova submariner style watch. 40mm case and 20mm lugs. ",
                 "imageUrl": "/assets/Bulova.jpeg",
             },
             "ff436770-76c5-40e2-b231-77409eda7a64": {
@@ -1372,7 +1372,7 @@
                 "year": "2020",
                 "style": "Diver with water resistance of 20 ATM",
                 "condition": "Newly acquired watch in perfect condition",
-                "description" : "Titanium case, unidirectional rotating bezel with polished and scratch resistant ceramic insert with luminescent markers.",
+                "description": "Titanium case, unidirectional rotating bezel with polished and scratch resistant ceramic insert with luminescent markers.",
                 "imageUrl": "/assets/Zodiac.jpeg",
             },
             "ff436770-76c5-40e2-b231-77409eda7a65": {
@@ -1385,7 +1385,7 @@
                 "year": "2022",
                 "style": "Diver",
                 "condition": "New, unworn condition",
-                "description" : "This 42 mm model is crafted from stainless steel and includes a blue ceramic bezel with a white enamel diving scale. The dial is also polished blue ceramic and features laser-engraved waves and a date window at 6 o’clock.",
+                "description": "This 42 mm model is crafted from stainless steel and includes a blue ceramic bezel with a white enamel diving scale. The dial is also polished blue ceramic and features laser-engraved waves and a date window at 6 o’clock.",
                 "imageUrl": "/assets/Omega.png",
             },
             "ff436770-76c5-40e2-b231-77409eda7a66": {
@@ -1398,7 +1398,7 @@
                 "year": "2021",
                 "style": "Diver",
                 "condition": "New, unworn condition",
-                "description" : "Unidirectional rotatable bezel in steel with 60-minute graduated disc in matt black anodised aluminium and pink gilded markings and numerals",
+                "description": "Unidirectional rotatable bezel in steel with 60-minute graduated disc in matt black anodised aluminium and pink gilded markings and numerals",
                 "imageUrl": "/assets/Tudor.png",
             },
         },
@@ -1422,7 +1422,35 @@
                 "_id": "d795e99b-17c6-41f4-bdf8-29bedb967a07"
             },
         ],
-        comments: {}
+        comments: [
+            {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "watchId": "ff436770-76c5-40e2-b231-77409eda7a62",
+                "comment": "This watch is awsome!",
+                "user": {
+                    "username": "petar93",
+                    "email": "erinbedri@abv.bg",
+                    "_id": "35c62d76-8152-4626-8712-eeb96381bea8",
+                    "accessToken": "476fb63786452a6e34497420a361b1a88b9dc4fbc051532b7874484b1d30a94b"
+                },
+                "_createdOn": 1660156965490,
+                "_id": "bdf50060-40a5-4847-86c2-27af28a17b0e"
+            },
+            {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "watchId": "ff436770-76c5-40e2-b231-77409eda7a62",
+                "comment": "I like your watch, it is nice!",
+                "user": {
+                    "username": "watchguy",
+                    "email": "erinbedri@abv.bg",
+                    "_id": "35c62d76-8152-4626-8712-eeb96381bea8",
+                    "accessToken": "476fb63786452a6e34497420a361b1a88b9dc4fbc051532b7874484b1d30a94b"
+                },
+                "_createdOn": 1660156965490,
+                "_id": "bdf50060-40a5-4847-86c2-27af28a17b0e"
+            },
+
+        ]
     };
     var rules$1 = {
         users: {
