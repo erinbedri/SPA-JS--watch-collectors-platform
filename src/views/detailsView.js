@@ -98,7 +98,6 @@ export const detailsView = (ctx) => {
     .catch(err => {
         alert(err);
     })
-
 }
 
 const onClick = (ctx) => {
