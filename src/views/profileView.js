@@ -47,6 +47,7 @@ const profileTemplate = (user, watchesCount) => html`
 export const profileView = (ctx) => {
     postService.getMyPosts(ctx.user._id)
         .then(watches => {
+            ctx.removeLoader();
             ctx.render(profileTemplate(ctx.user, watches.length))
         })
         .catch(err => {

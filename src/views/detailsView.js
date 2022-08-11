@@ -114,6 +114,7 @@ export const detailsView = (ctx) => {
 
     postService.getOne(postId)
         .then(watch => {
+            ctx.removeLoader();
             ctx.render(detailsTemplate(ctx, watch, hasLiked, likes, comments));
         })
         .catch(err => {

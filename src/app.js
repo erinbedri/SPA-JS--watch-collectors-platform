@@ -13,11 +13,13 @@ import { detailsView } from './views/detailsView.js';
 import { editView } from './views/editView.js';
 import { deleteView } from './views/deleteView.js';
 import { profileView } from './views/profileView.js';
+import { addLoader } from './middleware/loader.js';
 
 page(authMiddleware);
 page(renderNavigationMiddleware);
 page(renderContentMiddleware);
 
+page(addLoader);
 page('/', homeView);
 page('/index.html', '/');
 page('/login', loginView);

@@ -121,6 +121,7 @@ export const editView = (ctx) => {
     }
     postService.getOne(ctx.params.id)
         .then(post => {
+            ctx.removeLoader();
             ctx.render(editTemplate(submitHandler, post));
         })
 }

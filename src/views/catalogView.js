@@ -42,6 +42,7 @@ const catalogTemplate = (user, posts) => html`
 export const catalogView = (ctx) => {
     postService.getMyPosts(ctx.user._id)
         .then(posts => {
+            ctx.removeLoader();
             ctx.render(catalogTemplate(ctx.user, posts))
         })
         .catch(err => {

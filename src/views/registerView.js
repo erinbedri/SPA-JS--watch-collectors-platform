@@ -95,5 +95,6 @@ export const registerView = (ctx) => {
                 })
         }
     }
+    ctx.removeLoader();
     ctx.render(registerTemplate(submitHandler));
 }

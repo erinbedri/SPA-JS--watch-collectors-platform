@@ -80,6 +80,7 @@ export const homeView = (ctx) => {
     .then((values) => {
         let posts = values[0];
         let pages = Math.ceil(values[1] / PAGE_SIZE);
+        ctx.removeLoader();
         ctx.render(homeTemplate(posts, page, pages));
     })
     .catch(err => {

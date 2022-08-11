@@ -75,5 +75,6 @@ export const loginView = (ctx) => {
                 })
         }
     } 
+    ctx.removeLoader();
     ctx.render(loginTemplate(submitHandler));
 }
