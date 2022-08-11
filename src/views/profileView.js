@@ -15,8 +15,11 @@ const profileTemplate = (user, watchesCount) => html`
             
                     <div class="row justify-content-center">
                         <div class="col-lg-12 col-xl-4">
-
-                            <img src="../../../assets/img/portfolio/profile.JPG" style="max-width:50%;" class="rounded mx-auto d-block" alt="Profile Picture">
+            
+                            <img src="../../../assets/img/portfolio/profile.JPG" style="max-width:50%;"
+                                class="rounded mx-auto d-block" alt="Profile Picture">
+                            <h5 class="card-title row justify-content-center">You Registered ${watchesCount} watches so far!</h5>
+                            <br>
             
                             <div class="form-group">
                                 <label for="username">Username</label>
@@ -29,13 +32,7 @@ const profileTemplate = (user, watchesCount) => html`
                                 <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp"
                                     placeholder=${user.email} readonly>
                             </div>
-                            <br>
-                            <div class="form-group">
-                                <label for="countWatches">Total User Watches</label>
-                                <input type="text" name="countWatches" class="form-control" id="countWatches"
-                                    aria-describedby="emailHelp" placeholder=${watchesCount} readonly>
-                            </div>
-  
+
                             <div class="text-center mt-4">
                                 <a href="#" class="btn btn-primary disabled">Edit</a>
                             </div>
