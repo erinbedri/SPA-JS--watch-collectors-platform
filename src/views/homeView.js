@@ -39,7 +39,6 @@ const homeTemplate = (posts, page, pages) => html`
                         <div class="divider-custom-line"></div>
                     </div>
 
-                    
                     ${searchTemplate}
                     
                     <br>
