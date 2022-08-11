@@ -80,15 +80,11 @@ const detailsTemplate = (ctx, watch, hasLiked, likes, comments) => html`
 `;
 
 export const detailsView = (ctx) => {  
-    let likes = postService.getLikesOfWatch(ctx.params.id);
-    let hasLiked = ctx.user ? postService.hasLiked(ctx.user._id, ctx.params.id) : false;
-    let comments = postService.getComments(ctx.params.id);
+    let likesPromise = postService.getLikesOfWatch(ctx.params.id);
+    let hasLikedPromise = ctx.user ? postService.hasLiked(ctx.user._id, ctx.params.id) : false;
+    let commentsPromise = postService.getComments(ctx.params.id);
 
-    Promise.all([likes, hasLiked, comments]).then(results => {
-        likes = results[0];
-        hasLiked = results[1];
-        comments = results[2];
-
+    Promise.all([likesPromise, hasLikedPromise, commentsPromise]).then(([likes, hasLiked, comments]) => {
         postService.getOne(ctx.params.id)
             .then(watch => {
                 ctx.removeLoader();
