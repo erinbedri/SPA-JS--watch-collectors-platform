@@ -80,43 +80,25 @@ const detailsTemplate = (ctx, watch, hasLiked, likes, comments) => html`
 `;
 
 export const detailsView = (ctx) => {  
-    let likes;
-    postService.getLikesOfWatch(ctx.params.id)
-        .then(count => {
-            likes = count;
-        })
-        .catch(err => {
-            alert(err);
-        })
+    let likes = postService.getLikesOfWatch(ctx.params.id);
+    let hasLiked = ctx.user ? postService.hasLiked(ctx.user._id, ctx.params.id) : false;
+    let comments = postService.getComments(ctx.params.id);
 
-    let hasLiked = false;
-    if (ctx.user) {
-        postService.hasLiked(ctx.user._id, ctx.params.id)
-            .then(result => {
-                hasLiked = result;
+    Promise.all([likes, hasLiked, comments]).then(results => {
+        likes = results[0];
+        hasLiked = results[1];
+        comments = results[2];
+
+        postService.getOne(ctx.params.id)
+            .then(watch => {
+                ctx.removeLoader();
+                ctx.render(detailsTemplate(ctx, watch, hasLiked, likes, comments));
             })
-            .catch(err => {
-                alert(err);
-            })
-    }
+    })
+    .catch(err => {
+        alert(err);
+    })
 
-    let comments;
-    postService.getComments(ctx.params.id)
-        .then(result => {
-            comments = result;
-        })
-        .catch(err => {
-            alert(err);
-        })
-
-    postService.getOne(ctx.params.id)
-        .then(watch => {
-            ctx.removeLoader();
-            ctx.render(detailsTemplate(ctx, watch, hasLiked, likes, comments));
-        })
-        .catch(err => {
-            alert(err);
-        })
 }
 
 const onClick = (ctx) => {
