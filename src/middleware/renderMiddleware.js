@@ -19,3 +19,16 @@ export const renderContentMiddleware = (ctx, next) => {
 
     next();
 }
+
+
+let navbarElement = document.getElementById('navigation');
+
+navbarElement.addEventListener('click', (e) => {
+    let current = e.target;
+    let navLinks = document.getElementsByClassName('nav-link');
+
+    for (let link of navLinks) {
+        link.classList.remove('text-decoration-underline')
+    }
+    current.classList.add('text-decoration-underline');
+})

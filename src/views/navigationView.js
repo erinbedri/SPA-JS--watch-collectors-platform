@@ -24,7 +24,7 @@ export const navigationView = (ctx) => html`
                     <ul class="navbar-nav ms-auto">
 
                         ${ctx.user
-                                ? html`<p class="nav-link py-3 px-0 px-lg-3">Welcome, ${ctx.user.username ?ctx.user.username :ctx.user.email}!<p></li>`
+                                ? html`<p class="nav-link py-3 px-0 px-lg-3 text-success">Welcome, ${ctx.user.username ?ctx.user.username :ctx.user.email}!<p></li>`
                                 : nothing
                         }
 
@@ -40,3 +40,4 @@ export const navigationView = (ctx) => html`
             </div>
         </nav>
 `;
+
