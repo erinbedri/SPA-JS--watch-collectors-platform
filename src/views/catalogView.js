@@ -18,7 +18,7 @@ const postTemplate = (watch) => html`
 const catalogTemplate = (user, posts) => html`
             <section class="page-section">
                 <div class="container">
-                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">My Watch Collection</h2>
+                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">My Watch Collection</h2>         
 
                     <div class="divider-custom">
                         <div class="divider-custom-line"></div>
@@ -26,6 +26,18 @@ const catalogTemplate = (user, posts) => html`
                         <div class="divider-custom-line"></div>
                     </div>
 
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12 col-xl-3">
+                    
+                            <div class="input-group">
+                                <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                <button type="button" class="btn btn-outline-primary">search</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <br>
+                    
                     <div class="row justify-content-center">
                         ${user && posts.length > 0
                             ? html`${posts.map(p => postTemplate(p))}`
