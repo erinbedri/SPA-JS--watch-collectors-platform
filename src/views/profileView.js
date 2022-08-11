@@ -15,6 +15,8 @@ const profileTemplate = (user, watchesCount) => html`
             
                     <div class="row justify-content-center">
                         <div class="col-lg-12 col-xl-4">
+
+                            <img src="../../../assets/img/portfolio/profile.JPG" style="max-width:50%;" class="rounded mx-auto d-block" alt="Profile Picture">
             
                             <div class="form-group">
                                 <label for="username">Username</label>
@@ -29,7 +31,7 @@ const profileTemplate = (user, watchesCount) => html`
                             </div>
                             <br>
                             <div class="form-group">
-                                <label for="countWatches">User Watches</label>
+                                <label for="countWatches">Total User Watches</label>
                                 <input type="text" name="countWatches" class="form-control" id="countWatches"
                                     aria-describedby="emailHelp" placeholder=${watchesCount} readonly>
                             </div>
