@@ -27,18 +27,6 @@ const catalogTemplate = (user, posts) => html`
                     </div>
 
                     <div class="row justify-content-center">
-                        <div class="col-lg-12 col-xl-3">
-                    
-                            <div class="input-group">
-                                <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                                <button type="button" class="btn btn-outline-primary">search</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <br>
-                    
-                    <div class="row justify-content-center">
                         ${user && posts.length > 0
                             ? html`${posts.map(p => postTemplate(p))}`
                             : html`<h6 class="page-section-heading text-center text-secondary mb-10">No posts yet!</h6>`

@@ -16,7 +16,8 @@ const api = {
     hasLiked: (userId, watchId) => `/data/likes?where=watchId%3D%22${watchId}%22%20and%20_ownerId%3D%22${userId}%22&count`,
     getComments: (watchId) => `/data/comments?where=watchId%3D%22${watchId}%22`,
     comment: '/data/comments',
-    getCount: '/data/posts?count'
+    getCount: '/data/posts?count',
+    search: '/data/posts?where='
 }
 
 export const getAll = (page) => request.get(baseUrl + api.getAll(page));
@@ -42,3 +43,5 @@ export const getComments = (watchId) => request.get(baseUrl + api.getComments(wa
 export const comment = (watchId, comment, user) => request.post(baseUrl + api.comment, {watchId, comment, user});
 
 export const getCount = () => request.get(baseUrl + api.getCount);
+
+export const search = (param) => request.get(baseUrl + api.search + encodeURIComponent(`brand LIKE "${param}"`));

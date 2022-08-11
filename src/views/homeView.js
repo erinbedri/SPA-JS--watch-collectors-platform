@@ -17,6 +17,17 @@ const postTemplate = (watch) => html`
     </div>
 `;
 
+const searchTemplate = html`
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12 col-xl-3">
+                            <div class="input-group">
+                                <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                <button type="button" class="btn btn-outline-primary" disabled>Search</button>
+                            </div>
+                        </div>
+                    </div>
+`;
+
 const homeTemplate = (posts, page, pages) => html`
             <section class="page-section">
                 <div class="container">
@@ -27,6 +38,11 @@ const homeTemplate = (posts, page, pages) => html`
                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                         <div class="divider-custom-line"></div>
                     </div>
+
+                    
+                    ${searchTemplate}
+                    
+                    <br>
 
                     <div class="row justify-content-center">
                         ${posts.length > 0
