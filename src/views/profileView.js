@@ -18,7 +18,7 @@ const profileTemplate = (user, watchesCount) => html`
             
                             <img src="../../../assets/img/portfolio/profile.JPG" style="max-width:50%;"
                                 class="rounded mx-auto d-block" alt="Profile Picture">
-                            <h5 class="card-title row justify-content-center">You Registered ${watchesCount} watches so far!</h5>
+                            <h5 class="card-title row justify-content-center">You registered ${watchesCount} watches so far!</h5>
                             <br>
             
                             <div class="form-group">
